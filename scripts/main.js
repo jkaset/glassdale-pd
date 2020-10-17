@@ -14,3 +14,6 @@
 
 import {CriminalList} from "./criminals/criminalList.js"
 CriminalList()
+
+import {ConvictionSelect} from "./convictions/ConvictionSelect.js"
+ConvictionSelect()
