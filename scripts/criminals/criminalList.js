@@ -14,7 +14,7 @@ export const CriminalList = () => {
     
   
   
-  criminalContainer.innerHTML += `<div>${buildCriminalList}</div>`
+  criminalContainer.innerHTML += buildCriminalList
 })
 }
 
