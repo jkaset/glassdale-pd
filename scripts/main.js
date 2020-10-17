@@ -13,7 +13,11 @@
 // })
 
 import {CriminalList} from "./criminals/criminalList.js"
-CriminalList()
 
 import {ConvictionSelect} from "./convictions/ConvictionSelect.js"
+
+import {OfficerList} from "./officers/OfficerList.js"
+
+CriminalList()
 ConvictionSelect()
+OfficerList()
