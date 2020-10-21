@@ -7,6 +7,15 @@ import { getConvictions, useConvictions } from "./ConvictionProvider.js"
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".filters__crime")
 
+export const ConvictionSelect = () => {
+  getConvictions()
+    .then(() => {
+    const convictions = useConvictions()
+    render(convictions)
+    })
+  }
+
+
 const render = convictionsCollection => {       
   contentTarget.innerHTML = `
       <select class="dropdown" id="crimeSelect">
@@ -24,7 +33,7 @@ const render = convictionsCollection => {
 
 eventHub.addEventListener("change", (changeEvent) => {
   if (changeEvent.target.id === "crimeSelect") {
-    const customEvent = new CustomEvent("crimeSelected", {
+    const customEvent = new CustomEvent("crimeChosen", {
       detail: {
         crimeThatWasChosen: parseInt(changeEvent.target.value)
       }
@@ -33,12 +42,5 @@ eventHub.addEventListener("change", (changeEvent) => {
   }
 })
 
-export const ConvictionSelect = () => {
-  getConvictions()
-    .then(() => {
-    const convictions = useConvictions()
-    render(convictions)
-    })
-  }
 
 
