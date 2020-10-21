@@ -40,6 +40,7 @@ eventHub.addEventListener("change", (changeEvent) => {
     })    
     eventHub.dispatchEvent(customEvent)
   }
+  //console.log(changeEvent.target.value)
 })
 
 
