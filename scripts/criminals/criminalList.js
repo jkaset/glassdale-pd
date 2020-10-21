@@ -1,6 +1,7 @@
 import {getCriminals, useCriminals} from "./CriminalProvider.js"
 import {criminalCard} from "./criminal.js"
 import {useConvictions} from "../convictions/ConvictionProvider.js"
+import { useOfficers } from "../officers/OfficerProvider.js"
 
 const criminalsContainer = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
@@ -13,9 +14,6 @@ export const CriminalList = () => {
       render(criminalArray)
   })
 }
-
-
-
 
 eventHub.addEventListener("crimeChosen", event => {
   if (event.detail.crimeThatWasChosen !== 0) {
@@ -53,30 +51,31 @@ const render = (criminalsArray) => {
   }
   }
 
-//         buildCriminalList += criminalCard(criminalOne)
-//   
-//   criminalsContainer.innerHTML += `
-//   <h3>Glassdale Criminals</h3>
-//   <section class="criminalList">
-//     ${buildCriminalList}
-//   </section>
-//   `
-//   }
-// }  
+//   eventHub.addEventListener("officerSelected", event => {
+    
+//     const selectedOfficerName = event.detail.officerName
+//     const criminalsArray = useCriminals()
 
+//     const filteredArrayOfCriminals = criminalsArray.filter(
+//       criminalObject => {
+//       return criminalObject.arrestingOfficer === selectedOfficerName
+//       //console.log(filteredArrayOfCriminals)
+//     }
+//     )
+//     render(filteredArrayOfCriminals)
+// })
 
-  
+eventHub.addEventListener("officerSelected", event => {
+  // How can you access the officer name that was selected by the user?
+  const officerName = event.detail.officerName
 
-
-// export const CriminalList = () => {
-//   getCriminals()
-//       .then(() => {
-//           const appStateCriminals = useCriminals()
-//           render(appStateCriminals)
-//       })
-// }
-
-  
-
-//Render ALL criminals initally
-
+  // How can you get the criminals that were arrested by that officer?
+  const criminals = useCriminals()
+  const filteredArray = criminals.filter(
+      criminalObject => {
+          if (criminalObject.arrestingOfficer === officerName) {
+              return true
+          }
+      })
+      render(filteredArray)
+})

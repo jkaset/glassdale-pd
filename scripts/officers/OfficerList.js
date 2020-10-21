@@ -12,9 +12,6 @@ export const OfficerList = () => {
       for (const officer of officerArray) {
         buildOfficerList += officerCard(officer)
     }
-    
-  
-  
   officerContainer.innerHTML += `<h2>Glassdale Officers</h2>${buildOfficerList}`
 })
 }

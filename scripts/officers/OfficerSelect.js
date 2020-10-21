@@ -1,27 +1,28 @@
 import {useOfficers, getOfficers} from "./OfficerProvider.js"
 
-const contentTarget = document.querySelector(".filters__officer")
+const officerContainer = document.querySelector(".filters__officer")
+const eventHub = document.querySelector(".container")
 
 export const OfficerSelect = () => {
   getOfficers()
   //console.log(OfficerSelect)
   .then(() => {
-    const officers = useOfficers()
-    render(officers)
-    //console.log(officers)
+    const officersArray = useOfficers()
+    render(officersArray)
+    // console.log(officersArray)
   })
 }
 
 //console.log(OfficerSelect)
 
 const render = officersCollection => {       
-  contentTarget.innerHTML = `
+  officerContainer.innerHTML = `
       <select class="dropdown" id="officerSelect">
           <option value="0">Please select an officer...</option>
           ${officersCollection.map(
             officerObj => {
               
-              return `<option value="${officerObj.id}">${officerObj.name}</option>`
+              return `<option value="${officerObj.name}">${officerObj.name}</option>`
             }
           ).join("")
         }
@@ -29,19 +30,16 @@ const render = officersCollection => {
   `
 }
 
-// eventHub.addEventListener("change", changeEvent => {
-//   if (changeEvent.target.id === "officerSelect") {
-//       // Get the name of the selected officer
-//       const selectedOfficer = changeEvent.target.value
+eventHub.addEventListener("change", changeEvent => {
+  //console.log("change happend")
+  if (changeEvent.target.id === "officerSelect") {
+      const selectedOfficer = changeEvent.target.value
 
-//       // Define a custom event
-//       const customEvent = new CustomEvent("officerSelected", {
-//           detail: {
-//               officer: selectedOfficer
-//           }
-//       })
-
-//       // Dispatch event to event hub
-//       eventHub.dispatchEvent(customEvent)
-//   }
-// })
+      const officerEvent = new CustomEvent("officerSelected", {
+          detail: {
+              officerName: selectedOfficer
+          }
+      })
+      eventHub.dispatchEvent(officerEvent)
+  }
+})
