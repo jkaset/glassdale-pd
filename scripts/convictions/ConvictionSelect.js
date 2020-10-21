@@ -4,11 +4,36 @@
  */
 import { getConvictions, useConvictions } from "./ConvictionProvider.js"
 
-// Get a reference to the DOM element where the <select> will be rendered
+const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".filters__crime")
 
+const render = convictionsCollection => {       
+  contentTarget.innerHTML = `
+      <select class="dropdown" id="crimeSelect">
+          <option value="0">Please select a crime...</option>
+          ${convictionsCollection.map(
+            convictionObj => {
+              
+              return `<option value="${convictionObj.id}">${convictionObj.name}</option>`
+            }
+          ).join("")
+        }
+      </select>
+  `
+}
+
+eventHub.addEventListener("change", (changeEvent) => {
+  if (changeEvent.target.id === "crimeSelect") {
+    const customEvent = new CustomEvent("crimeSelected", {
+      detail: {
+        crimeThatWasChosen: parseInt(changeEvent.target.value)
+      }
+    })    
+    eventHub.dispatchEvent(customEvent)
+  }
+})
+
 export const ConvictionSelect = () => {
-  // Get all convictions from application state
   getConvictions()
     .then(() => {
     const convictions = useConvictions()
@@ -16,23 +41,4 @@ export const ConvictionSelect = () => {
     })
   }
 
-const render = convictionsCollection => {       
-    /*
-        Use interpolation here to invoke the map() method on
-        the convictionsCollection to generate the option elements.
-        Look back at the example provided above.
-    */
-    contentTarget.innerHTML = `
-        <select class="dropdown" id="crimeSelect">
-            <option value="0">Please select a crime...</option>
-            ${convictionsCollection.map(
-              convictionObj => {
-                
-                return `<option value="${convictionObj.id}">${convictionObj.name}</option>`
-              }
-            ).join("")
-          }
-        </select>
-    `
-    console.log(convictionsCollection)
-}
+
