@@ -46,11 +46,9 @@ const render = (criminalsArray) => {
 
     criminalsHTMLRepresentations += criminalCard(criminal)
 
-    criminalsContainer.innerHTML = `
-          <h3>Glassdale Criminals</h3>
-          <section class="criminalsList">
+    criminalsContainer.innerHTML = `  
             ${criminalsHTMLRepresentations}
-          </section>
+          
         `
   }
   }

@@ -7,7 +7,7 @@ export const getConvictions = () => {
   .then(response => response.json())
   .then(
     convictionsArray => {
-      console.table(convictionsArray)
+      //console.table(convictionsArray)
       convictions = convictionsArray
     }
   )
