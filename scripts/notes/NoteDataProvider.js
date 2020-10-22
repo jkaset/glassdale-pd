@@ -8,13 +8,18 @@ const dispatchStateChangeEvent = () => {
 //create an array for notes to get parsed in
 let notes = []
 
-const getNotes = () => {
+export const getNotes = () => {
     return fetch('http://localhost:8088/notes')
         .then(response => response.json())
         .then(parsedNotes => {
             notes = parsedNotes
         })
 
+}
+
+//added much later once doing notelist.js
+export const useNotes = () => {
+    return notes.slice()
 }
 
 export const saveNote = note => {

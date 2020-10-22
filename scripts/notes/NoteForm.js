@@ -1,6 +1,8 @@
+import {saveNote} from "./NoteDataProvider.js"
+
 const contentTarget = document.querySelector(".noteFormContainer")
 const eventHub = document.querySelector(".container")
-import {saveNote} from "./NoteDataProvider.js"
+
 
 //put even hub around form
 
@@ -17,7 +19,7 @@ const render = () => {
 }
 
 eventHub.addEventListener("click", clickEvent =>{
-  console.log(clickEvent)
+  //console.log(clickEvent)
   if (clickEvent.target.id === "saveNote") {
     // Make a new object representation of a note
     //grab input values
