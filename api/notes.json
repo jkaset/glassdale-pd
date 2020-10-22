@@ -1,0 +1,12 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "timestamp": "999",
+      "dateOfInterview": "10/20/20",
+      "author": "J. Cochran",
+      "suspect": "O.J. Simpson",
+      "note": "The glove didn't fit."
+    }
+  ]
+}

@@ -12,13 +12,17 @@
 //   console.log(criminalArray)
 // })
 
-import {CriminalList} from "./criminals/criminalList.js"
+import { CriminalList } from "./criminals/criminalList.js"
 
-import {ConvictionSelect} from "./convictions/ConvictionSelect.js"
+import { ConvictionSelect } from "./convictions/ConvictionSelect.js"
 
-import {OfficerList} from "./officers/OfficerList.js"
+import { OfficerList } from "./officers/OfficerList.js"
 
-import {OfficerSelect} from "./officers/OfficerSelect.js"
+import { OfficerSelect } from "./officers/OfficerSelect.js"
+
+import { NoteForm } from "./notes/NoteForm.js"
+
+
 
 
 
@@ -26,3 +30,4 @@ CriminalList()
 ConvictionSelect()
 OfficerList()
 OfficerSelect()
+NoteForm()
