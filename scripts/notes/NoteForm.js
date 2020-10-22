@@ -8,7 +8,7 @@ const eventHub = document.querySelector(".container")
 
 const render = () => {
     contentTarget.innerHTML = `
-        <input id="note--timestamp" type="">
+        
         <input id="note--dateOfInterview" type="date"/>
         <input id="note--author" type="text" placeholder="Your name here"/>
         <input id="note--suspect" type="text" placeholder="Suspect name"/>
@@ -27,11 +27,11 @@ eventHub.addEventListener("click", clickEvent =>{
     const dateOfInterview = document.querySelector("#note--dateOfInterview").value
     const author = document.querySelector("#note--author").value
     const suspect = document.querySelector("#note--suspect").value
-    const note = document.querySelector("#note--note")
+    const note = document.querySelector("#note--note").value
     //make note object
     const newNote = {
       timestamp: timestamp,
-      dateOfInterview: dateOfInterview.value, 
+      dateOfInterview: dateOfInterview, 
       author: author,
       suspect: suspect,
       note: note,

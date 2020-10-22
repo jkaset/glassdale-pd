@@ -8,6 +8,9 @@
 import {NoteAsHTML} from "./Note.js"
 import {getNotes, useNotes} from "./NoteDataProvider.js"
 const notesContainer = document.querySelector(".notesContainer")
+const eventHub = document.querySelector(".container")
+
+eventHub.addEventListener("noteStateChanged", () => NoteList()) 
 
 export const NoteList = () => {
   getNotes()
@@ -28,5 +31,4 @@ const render = (notesArray) => {
             ${notesHTMLRepresentations}
           
         `
-  
   }

@@ -23,6 +23,7 @@ h1,h2,h3,h4,h5,h6 {
   flex-wrap: wrap;
   justify-content: space-evenly;
 	align-content: space-between;
+	flex-basis: 3;
 }
 
 .criminal__card {
@@ -32,6 +33,17 @@ h1,h2,h3,h4,h5,h6 {
 	padding: 1em;
 }
 
-.investigation {
+.notes-criminals {
 	display: flex;
+}
+
+
+.noteFormContainer {
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.investigation {
+	flex-basis: 1;
 }
