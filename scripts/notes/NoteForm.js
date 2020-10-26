@@ -43,6 +43,7 @@ eventHub.addEventListener("click", clickEvent =>{
     // Change API state and application state
     // 
     saveNote(newNote)
+    location.reload()
 }
 })
 
