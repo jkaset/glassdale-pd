@@ -15,6 +15,22 @@
       "suspect": "Hill",
       "note": "Innocent",
       "id": 2
+    },
+    {
+      "timestamp": 1603721447241,
+      "dateOfInterview": "2020-10-26",
+      "author": "Sam",
+      "suspect": "Sam",
+      "note": "I did it",
+      "id": 3
+    },
+    {
+      "timestamp": 1603721550382,
+      "dateOfInterview": "2020-10-25",
+      "author": "Dio",
+      "suspect": "Ham",
+      "note": "He's a stealer",
+      "id": 4
     }
   ]
 }
