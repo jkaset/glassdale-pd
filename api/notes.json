@@ -31,6 +31,14 @@
       "suspect": "Ham",
       "note": "He's a stealer",
       "id": 4
+    },
+    {
+      "timestamp": 1603734838341,
+      "dateOfInterview": "2020-10-06",
+      "author": "Harry",
+      "suspect": "Job",
+      "note": "he did it",
+      "id": 5
     }
   ]
 }

@@ -9,6 +9,7 @@ export const criminalCard = (criminal) => {
       <p>Term Start: ${new Date(criminal.incarceration.start).toLocaleDateString('en-US')}</p>
       <p>Term End: ${new Date(criminal.incarceration.end).toLocaleDateString('en-US')}</p>
       <button id="associates--${criminal.id}">Associate Alibis</button>
+     
     </section>
   `
 }
@@ -32,3 +33,4 @@ eventHub.addEventListener("click", (eventObj) => {
     eventHub.dispatchEvent(myCustomEvent)
   }
 })
+
