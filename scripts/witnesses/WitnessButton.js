@@ -1,20 +1,24 @@
-import {useWitnesses, getWitnesses} from "./WitnessProvider.js"
-import {witnessCard} from "./Witness.js"
+// import {useWitnesses, getWitnesses} from "./WitnessProvider.js"
+// import {witnessCard} from "./Witness.js"
 
-const witnessContainer = document.querySelector(".filters__witness")
+const contentTarget = document.querySelector(".buttons__witnesses")
 const eventHub = document.querySelector(".container")
 
-
-
-
- 
-
-eventHub.addEventListener("click", clickEvent =>{
-  //console.log(clickEvent)
-  if (clickEvent.target.id === "witnessButton") {
-    contentTarget.innerHTML += `
-
-    `
+export const renderWitnessButton = () => {
+  
+  contentTarget.innerHTML = `
+    <button id="witness-display">Witness Statements</button>  
+  `
 
 }
+
+eventHub.addEventListener("click", clickEvent => {
+  //console.log("change happend")
+  if (clickEvent.target.id === "witness-display") {
+      const witnessButtonClicked = new CustomEvent("witnessClicked")
+
+      eventHub.dispatchEvent(witnessButtonClicked)
+  }
+})
+
 
