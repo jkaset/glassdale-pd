@@ -6,12 +6,27 @@ const eventHub = document.querySelector(".container")
 
 //put even hub around form
 
-const render = () => {
+const render = (criminalsCollection) => {
     contentTarget.innerHTML = `
         
         <input id="note--dateOfInterview" type="date"/>
         <input id="note--author" type="text" placeholder="Your name here"/>
+
         <input id="note--suspect" type="text" placeholder="Suspect name"/>
+
+        
+
+        <select class="dropdown" id="criminalSelect">
+          <option value="0">Please select an criminal...</option>
+          ${criminalsCollection.map(
+            criminalObj => {
+              
+              return `<option value="${criminalObj.id}">${criminalObj.name}</option>`
+            }
+          ).join("")
+        }
+      </select>
+
         <textarea id="note--note" placeholder="Your note here"></textarea>
 
         <button id="saveNote">Save Note</button>
@@ -33,7 +48,7 @@ eventHub.addEventListener("click", clickEvent =>{
       timestamp: timestamp,
       dateOfInterview: dateOfInterview, 
       author: author,
-      suspect: suspect,
+      criminalId: selectedCriminalId,
       note: note,
     }
     //send object to database, api, json
@@ -53,3 +68,8 @@ eventHub.addEventListener("click", clickEvent =>{
 export const NoteForm = () => {
     render()
 }
+
+
+// <select id="noteForm--criminal" class="criminalSelect">
+        // <option value="${ criminal.id }">${ criminal.name }</option>
+        // </select>
