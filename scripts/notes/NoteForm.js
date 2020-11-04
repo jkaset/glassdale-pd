@@ -1,12 +1,21 @@
+import { getCriminals, useCriminals } from "../criminals/CriminalProvider.js"
 import {saveNote} from "./NoteDataProvider.js"
+//import use get
 
 const contentTarget = document.querySelector(".noteFormContainer")
 const eventHub = document.querySelector(".container")
 
 
-//put even hub around form
+export const NoteForm = () => {
+  return getCriminals()
+  .then(() => {
+    const criminalsArray = useCriminals()
+    render(criminalsArray)
+  })
+}
 
 const render = (criminalsCollection) => {
+    
     contentTarget.innerHTML = `
         
         <input id="note--dateOfInterview" type="date"/>
@@ -16,7 +25,7 @@ const render = (criminalsCollection) => {
 
         
 
-        <select class="dropdown" id="criminalSelect">
+        <select class="dropdown" id="note--criminalSelect">
           <option value="0">Please select an criminal...</option>
           ${criminalsCollection.map(
             criminalObj => {
@@ -41,14 +50,14 @@ eventHub.addEventListener("click", clickEvent =>{
     const timestamp = Date.now()
     const dateOfInterview = document.querySelector("#note--dateOfInterview").value
     const author = document.querySelector("#note--author").value
-    const suspect = document.querySelector("#note--suspect").value
+    const suspect = document.querySelector("#note--criminalSelect").value
     const note = document.querySelector("#note--note").value
     //make note object
     const newNote = {
       timestamp: timestamp,
       dateOfInterview: dateOfInterview, 
       author: author,
-      criminalId: selectedCriminalId,
+      criminalId: suspect,
       note: note,
     }
     //send object to database, api, json
@@ -65,9 +74,10 @@ eventHub.addEventListener("click", clickEvent =>{
 
 
 //this was already here
-export const NoteForm = () => {
-    render()
-}
+
+
+// noteform function to call render function
+// get crim then use crim and save criminalarray into a variable render(criminalArray)
 
 
 // <select id="noteForm--criminal" class="criminalSelect">
