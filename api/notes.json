@@ -1,44 +1,12 @@
 {
   "notes": [
     {
-      "id": 1,
-      "timestamp": "999",
-      "dateOfInterview": "10/20/20",
-      "author": "J. Cochran",
-      "suspect": "O.J. Simpson",
-      "note": "The glove didn't fit."
-    },
-    {
-      "timestamp": 1603395733411,
-      "dateOfInterview": "2020-10-20",
-      "author": "Jason",
-      "suspect": "Hill",
-      "note": "Innocent",
-      "id": 2
-    },
-    {
-      "timestamp": 1603721447241,
-      "dateOfInterview": "2020-10-26",
-      "author": "Sam",
-      "suspect": "Sam",
-      "note": "I did it",
-      "id": 3
-    },
-    {
-      "timestamp": 1603721550382,
-      "dateOfInterview": "2020-10-25",
-      "author": "Dio",
-      "suspect": "Ham",
-      "note": "He's a stealer",
-      "id": 4
-    },
-    {
-      "timestamp": 1603734838341,
-      "dateOfInterview": "2020-10-06",
-      "author": "Harry",
-      "suspect": "Job",
-      "note": "he did it",
-      "id": 5
+      "timestamp": 1604593347283,
+      "dateOfInterview": "2020-11-05",
+      "author": "Jas",
+      "criminalId": "3",
+      "note": "he is nice",
+      "id": 1
     }
   ]
 }
