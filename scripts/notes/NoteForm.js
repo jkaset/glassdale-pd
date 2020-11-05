@@ -21,7 +21,7 @@ const render = (criminalsCollection) => {
         <input id="note--dateOfInterview" type="date"/>
         <input id="note--author" type="text" placeholder="Your name here"/>
 
-        <input id="note--suspect" type="text" placeholder="Suspect name"/>
+        
 
         
 
@@ -48,6 +48,7 @@ eventHub.addEventListener("click", clickEvent =>{
     // Make a new object representation of a note
     //grab input values
     const timestamp = Date.now()
+    
     const dateOfInterview = document.querySelector("#note--dateOfInterview").value
     const author = document.querySelector("#note--author").value
     const suspect = document.querySelector("#note--criminalSelect").value
