@@ -1,16 +1,41 @@
 const eventHub = document.querySelector(".container")
 
-export const criminalCard = (criminal) => {
-  return `
-    <section class="criminal__card" id="criminal-${criminal.id}">
-      <h2>${criminal.name}</h2>
-      <p>Age: ${criminal.age}</p>
-      <p>Conviction: ${criminal.conviction}</p>
-      <p>Term Start: ${new Date(criminal.incarceration.start).toLocaleDateString('en-US')}</p>
-      <p>Term End: ${new Date(criminal.incarceration.end).toLocaleDateString('en-US')}</p>
-      <button id="associates--${criminal.id}">Associate Alibis</button>
+// export const criminalCard = (criminal, facilityObj) => {
+//   return `
+//     <section class="criminal__card" id="criminal-${criminal.id}">
+//       <h2>${criminal.name}</h2>
+//       <p>Age: ${criminal.age}</p>
+//       <p>Conviction: ${criminal.conviction}</p>
+//       <p>Term Start: ${new Date(criminal.incarceration.start).toLocaleDateString('en-US')}</p>
+//       <p>Term End: ${new Date(criminal.incarceration.end).toLocaleDateString('en-US')}</p>
+//       <p>Facilities: ${facilityObj.facilityName}</p>
+//       <button id="associates--${criminal.id}">Associate Alibis</button>
      
-    </section>
+//     </section>
+//   `
+// }
+
+export const criminalCard = (criminalObject, facilities) => {
+  return `
+  <div class="criminal">
+      <h4>${criminalObject.name}</h4>
+      <div class="criminal__details">
+          <p>Convicted for ${criminalObject.conviction}</p>
+          <p>Arrested by ${criminalObject.arrestingOfficer}</p>
+          <p>Incarcerated between:
+              ${new Date(criminalObject.incarceration.start).toLocaleDateString()} and
+              ${new Date(criminalObject.incarceration.end).toLocaleDateString()}
+          </p>
+          <p>Age: ${criminalObject.age}</p>
+          <div>
+              <h4>Facilities</h4>
+              <ul>
+                  ${facilities.map(f => `<li>${f.facilityName}</li>`).join("")}
+              </ul>
+          </div>
+          <button id="associates--${criminalObject.id}">Show Associates</button>
+      </div>
+  </div>
   `
 }
 
