@@ -51,14 +51,15 @@ eventHub.addEventListener("click", clickEvent =>{
     
     const dateOfInterview = document.querySelector("#note--dateOfInterview").value
     const author = document.querySelector("#note--author").value
-    const suspect = document.querySelector("#note--criminalSelect").value
+    
+    const criminalId = parseInt(document.querySelector("#note--criminalSelect").value)
     const note = document.querySelector("#note--note").value
     //make note object
     const newNote = {
       timestamp: timestamp,
       dateOfInterview: dateOfInterview, 
       author: author,
-      criminalId: suspect,
+      criminalId: parseInt(criminalId),
       note: note,
     }
     //send object to database, api, json
@@ -68,7 +69,7 @@ eventHub.addEventListener("click", clickEvent =>{
     // Change API state and application state
     // 
     saveNote(newNote)
-    location.reload()
+    
 }
 })
 
@@ -84,3 +85,5 @@ eventHub.addEventListener("click", clickEvent =>{
 // <select id="noteForm--criminal" class="criminalSelect">
         // <option value="${ criminal.id }">${ criminal.name }</option>
         // </select>
+
+        // const suspect = document.querySelector("#note--criminalSelect").value
