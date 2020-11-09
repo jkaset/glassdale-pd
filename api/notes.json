@@ -1,11 +1,11 @@
 {
   "notes": [
     {
-      "timestamp": 1604593347283,
-      "dateOfInterview": "2020-11-05",
+      "timestamp": 1604941368931,
+      "dateOfInterview": "2020-11-02",
       "author": "Jas",
-      "criminalId": "3",
-      "note": "he is nice",
+      "criminalId": 15,
+      "note": "He has a good alibi",
       "id": 1
     }
   ]
