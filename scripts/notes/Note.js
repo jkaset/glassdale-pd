@@ -11,6 +11,7 @@ export const NoteAsHTML = (noteObj) => {
   <p>Note: ${noteObj.note}</p>
   <p>Date of Interview: ${noteObj.dateOfInterview}</p>
   <p>Timestamp: ${new Date(noteObj.timestamp).toLocaleDateString('en-US')}</p>
+  <button id="deleteNote--${noteObj.id}">Delete</button>
 </section>
   `
 }
