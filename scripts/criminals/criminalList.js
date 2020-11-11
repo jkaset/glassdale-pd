@@ -5,7 +5,7 @@ import { useOfficers } from "../officers/OfficerProvider.js"
 import {getFacilities, useFacilities} from "../facility/FacilityProvider.js"
 import {getCriminalFacilities, useCriminalFacilities} from "../facility/CriminalFacilityProvider.js"
 
-import {FacilitesList} from "../facility/FacilityList.js"
+
 
 
 const criminalsContainer = document.querySelector(".criminalsContainer")
@@ -19,6 +19,9 @@ eventHub.addEventListener("crimeChosen", event => {
     //console.log(criminalsArray)  
     const convictionsArray = useConvictions()
     //console.log(convictionsArray)
+    const facilities = useFacilities()
+    const crimFac = useCriminalFacilities()
+    
 
     const convictionThatWasChosen = convictionsArray.find(convictionObj => {
       return convictionObj.id === event.detail.crimeThatWasChosen
@@ -30,7 +33,7 @@ eventHub.addEventListener("crimeChosen", event => {
   })
   //console.log(filteredCriminalsArray)
 
-  render(filteredCriminalsArray)
+  render(filteredCriminalsArray, facilities, crimFac)
   }
 })
   //console.log("filteredCriminalsArray", filteredCriminalsArray)
@@ -41,6 +44,8 @@ eventHub.addEventListener("officerSelected", event => {
   const officerName = event.detail.officerName
 
   // How can you get the criminals that were arrested by that officer?
+  const facilities = useFacilities()
+  const crimFac = useCriminalFacilities()
   const criminals = useCriminals()
   const filteredArray = criminals.filter(
       criminalObject => {
@@ -48,7 +53,7 @@ eventHub.addEventListener("officerSelected", event => {
               return true
           }
       })
-      render(filteredArray)
+      render(filteredArray, facilities, crimFac)
 })
 
 // const render = (criminalsArray) => {

@@ -17,7 +17,7 @@ const eventHub = document.querySelector(".container")
 
 export const criminalCard = (criminalObject, facilities) => {
   return `
-  <div class="criminal">
+  <div class="criminal" id="criminal-${criminalObject.id}">
       <h4>${criminalObject.name}</h4>
       <div class="criminal__details">
           <p>Convicted for ${criminalObject.conviction}</p>
