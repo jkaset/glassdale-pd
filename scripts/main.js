@@ -25,7 +25,7 @@ import { NoteList } from "./notes/NoteList.js"
 import {createAlibiEventListener} from "./criminals/AlibiList.js"
 import { renderWitnessButton } from "./witnesses/WitnessButton.js"
 import "./witnesses/WitnessList.js"
-
+import {renderFacilitiesButton} from "./facility/DisplayFacilitiesButton.js"
 
 
 
@@ -39,3 +39,4 @@ createAlibiEventListener()
 //AlibiList()
 
 renderWitnessButton()
+renderFacilitiesButton()
