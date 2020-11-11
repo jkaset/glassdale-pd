@@ -4,7 +4,9 @@ import {useConvictions} from "../convictions/ConvictionProvider.js"
 import { useOfficers } from "../officers/OfficerProvider.js"
 import {getFacilities, useFacilities} from "../facility/FacilityProvider.js"
 import {getCriminalFacilities, useCriminalFacilities} from "../facility/CriminalFacilityProvider.js"
+import {Facility} from "../facility/Facility.js"
 
+const facilitiesContainer = document.querySelector(".facilityContainer")
 const criminalsContainer = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
 
@@ -103,3 +105,33 @@ const render = (criminalsToRender, allFacilities, allRelationships) => {
       }
   ).join("")
 }
+
+
+//LISTENS FOR facButtonClicked FROM DisplayFacilitiesButton.js
+eventHub.addEventListener("facButtonClicked", () => {
+  // console.log("Heard that user clicked the witness statements button")
+  FacilitesList()
+})
+
+const FacilitesList = () => {
+  getFacilities()
+    .then(() => {
+      const facilityArray = useFacilities()
+      renderFacilities(facilityArray)
+    })
+}
+
+const renderFacilities = (facilitiesArray) => {
+  let facilitiesHTML = ""
+  for (const facility of facilitiesArray) {
+    facilitiesHTML += Facility(facility)
+
+    facilitiesContainer.innerHTML = `
+      <h3>Glassdale Facilities</h3>
+      <section class="facilitiesList">
+        ${facilitiesHTML}
+      </section>
+    `
+  }
+}
+
