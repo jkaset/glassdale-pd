@@ -6,7 +6,7 @@ import {getFacilities, useFacilities} from "../facility/FacilityProvider.js"
 import {getCriminalFacilities, useCriminalFacilities} from "../facility/CriminalFacilityProvider.js"
 import {Facility} from "../facility/Facility.js"
 
-const facilitiesContainer = document.querySelector(".facilityContainer")
+const facilitiesContainer = document.querySelector(".criminalsContainer")
 const criminalsContainer = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
 
