@@ -26,7 +26,14 @@ h1,h2,h3,h4,h5,h6 {
 	flex-basis: 3;
 }
 
-.criminal__card, .witness__card {
+.criminal {
+	border: black dotted 1px;
+	margin: .5em;
+	flex-basis: 25%;
+	padding: 1em;
+}
+
+.criminal__card, .witness__card, .facility {
 	border: black dotted 1px;
 	margin: .5em 3em .5em .5em;
 	flex-basis: 25%;
