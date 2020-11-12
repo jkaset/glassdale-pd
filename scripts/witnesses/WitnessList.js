@@ -27,6 +27,7 @@ const render = (witnessesArray) => {
     witnessHTML += witnessCard(witness)
     witnessContainer.innerHTML = `
     <section>
+    <h3>Witness Statements</h3>
     ${witnessHTML}
     </section>
     `
